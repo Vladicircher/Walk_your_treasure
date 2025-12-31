@@ -4,32 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Новогодний марафон шагов — 9 дней</title>
-  <style> /* ===== Падающие снежинки ===== */
-.snow {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.snow span {
-  position: absolute;
-  top: -10px;
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  filter: blur(0.2px);
-  animation: fall linear infinite;
-  opacity: 0.8;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
-  }
-}
-
+  <style>
     :root{
       --bg0:#060913;
       --bg1:#0b1020;
@@ -425,10 +400,52 @@
     }
     /* Keep admin button always visible */
     #adminBtn{ display:inline-flex; }
-  </style>
+ /* ===== Падающие снежинки ===== */
+.snow {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.snow span {
+  position: absolute;
+  top: -10px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  filter: blur(0.2px);
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}  </style>
 </head>
 
 <body>
+
+<div class="snow" aria-hidden="true">
+  <span style="left:2%;  animation-duration:9s;  animation-delay:-1s;"></span>
+  <span style="left:6%;  animation-duration:12s; animation-delay:-3s;"></span>
+  <span style="left:10%; animation-duration:10s; animation-delay:-6s;"></span>
+  <span style="left:14%; animation-duration:14s; animation-delay:-2s;"></span>
+  <span style="left:18%; animation-duration:11s; animation-delay:-5s;"></span>
+  <span style="left:22%; animation-duration:13s; animation-delay:-4s;"></span>
+  <span style="left:26%; animation-duration:9s;  animation-delay:-7s;"></span>
+  <span style="left:30%; animation-duration:15s; animation-delay:-3s;"></span>
+  <span style="left:34%; animation-duration:12s; animation-delay:-6s;"></span>
+  <span style="left:38%; animation-duration:10s; animation-delay:-2s;"></span>
+</div>
+
+<!-- дальше идёт твой сайт -->
+<h1>Новогодний марафон</h1>
+...
+
   <header>
     <div class="title">
       <h1>Новогодний марафон шагов 🎄✨</h1>
