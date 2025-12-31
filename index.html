@@ -400,72 +400,10 @@
     }
     /* Keep admin button always visible */
     #adminBtn{ display:inline-flex; }
- /* ===== Падающие снежинки ===== */
-.snow {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-}
-
-.snow span {
-  position: absolute;
-  top: -10px;
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  filter: blur(0.2px);
-  animation: fall linear infinite;
-  opacity: 0.8;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh);
-  }
-}  </style>
+  </style>
 </head>
 
 <body>
-
-<div class="snow" aria-hidden="true">
- <span style="left:2%; animation-duration:9s;"></span>
-  <span style="left:4%; animation-duration:11s;"></span>
-  <span style="left:6%; animation-duration:13s;"></span>
-  <span style="left:8%; animation-duration:10s;"></span>
-  <span style="left:10%; animation-duration:14s;"></span>
-
-  <span style="left:15%; animation-duration:12s;"></span>
-  <span style="left:18%; animation-duration:9s;"></span>
-  <span style="left:22%; animation-duration:15s;"></span>
-  <span style="left:25%; animation-duration:11s;"></span>
-  <span style="left:28%; animation-duration:13s;"></span>
-
-  <span style="left:32%; animation-duration:10s;"></span>
-  <span style="left:36%; animation-duration:14s;"></span>
-  <span style="left:40%; animation-duration:12s;"></span>
-  <span style="left:44%; animation-duration:9s;"></span>
-  <span style="left:48%; animation-duration:15s;"></span>
-
-  <span style="left:52%; animation-duration:11s;"></span>
-  <span style="left:56%; animation-duration:13s;"></span>
-  <span style="left:60%; animation-duration:10s;"></span>
-  <span style="left:64%; animation-duration:14s;"></span>
-  <span style="left:68%; animation-duration:12s;"></span>
-
-  <span style="left:72%; animation-duration:9s;"></span>
-  <span style="left:76%; animation-duration:15s;"></span>
-  <span style="left:80%; animation-duration:11s;"></span>
-  <span style="left:84%; animation-duration:13s;"></span>
-  <span style="left:88%; animation-duration:10s;"></span>
-
-  <span style="left:92%; animation-duration:14s;"></span>
-  <span style="left:96%; animation-duration:12s;"></span>
-  <span style="left:98%; animation-duration:9s;"></span>
-</div>
-
-<!-- дальше идёт твой сайт --
   <header>
     <div class="title">
       <h1>Новогодний марафон шагов 🎄✨</h1>
@@ -570,7 +508,7 @@
 
   <script>
     // ===== ADMIN MODE =====
-    const ADMIN_PASSWORD = "itissnowingnow"; // <-- ПОМЕНЯЙТЕ НА СВОЙ
+    const ADMIN_PASSWORD = "CHANGE_ME_2026"; // <-- ПОМЕНЯЙТЕ НА СВОЙ
     const ADMIN_KEY = "walk_marathon_admin_ok_v2";
 
     function hashLight(s){
