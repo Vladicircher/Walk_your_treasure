@@ -1087,12 +1087,26 @@
     const downloadBtn = document.getElementById("downloadBtn");
     if (downloadBtn) downloadBtn.addEventListener("click", downloadJSON);
 
-    // First run
-    ensureStepsLength();
-    save();
-    applyAdminUI();
-    render();
-  </script>
+  async function preloadSharedData() {
+  if (localStorage.getItem('steps-marathon-data')) return;
+
+  try {
+    const res = await fetch('./data.json', { cache: 'no-store' });
+    if (!res.ok) return;
+
+    const data = await res.json();
+    localStorage.setItem('steps-marathon-data', JSON.stringify(data));
+  } catch (e) {}
+}
+
+(async function init() {
+  await preloadSharedData();
+
+  ensureStepsLength();
+  save();
+  applyAdminUI();
+  render();
+})();
    <script>
   (async function () {
   
