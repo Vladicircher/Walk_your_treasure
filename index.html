@@ -1093,29 +1093,6 @@
     applyAdminUI();
     render();
   </script>
-  <script>
-  (async function loadSharedData() {
-    try {
-      const response = await fetch('./data.json', { cache: 'no-store' });
-      if (!response.ok) throw new Error('JSON not found');
-
-      const data = await response.json();
-
-      // 🔴 ВАЖНО:
-      // здесь мы кладём данные в localStorage,
-      // чтобы приложение увидело их как "свои"
-      localStorage.setItem('steps-marathon-data', JSON.stringify(data));
-
-      console.log('Данные загружены из data.json');
-
-      // перезагружаем страницу, чтобы приложение подхватило данные
-      location.reload();
-
-    } catch (e) {
-      console.warn('Общий JSON не загружен, используем локальные данные');
-    }
-  })();
-</script>
-
+ 
 </body>
 </html>
