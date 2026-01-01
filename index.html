@@ -1094,25 +1094,20 @@
     render();
   </script>
    <script>
-    (async function bootstrapFromJsonOnce() {
-      const FLAG = 'bootstrapped-from-json-v1';
-      if (sessionStorage.getItem(FLAG)) return;
+  (async function () {
+  
+    if (localStorage.getItem('steps-marathon-data')) return;
 
-      try {
-        const res = await fetch('./data.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error('data.json not found');
+    try {
+      const res = await fetch('./data.json', { cache: 'no-store' });
+      if (!res.ok) return;
 
-        const data = await res.json();
-
-        localStorage.setItem('steps-marathon-data', JSON.stringify(data));
-
-        sessionStorage.setItem(FLAG, '1');
-        location.reload();
-      } catch (e) {
-        console.warn('Не удалось загрузить data.json, остаёмся на локальных данных:', e);
-      }
-    })();
-  </script>
+      const data = await res.json();
+      localStorage.setItem('steps-marathon-data', JSON.stringify(data));
+  
+    } catch (e) {}
+  })();
+</script>
  
 </body>
 </html>
