@@ -1087,20 +1087,37 @@
     const downloadBtn = document.getElementById("downloadBtn");
     if (downloadBtn) downloadBtn.addEventListener("click", downloadJSON);
 (async function init() {
-  if (!localStorage.getItem(STORAGE_KEY)) {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  let parsed = null;
+
+  if (raw) {
+    try { parsed = JSON.parse(raw); } catch {}
+  }
+
+  const needBootstrap =
+    !parsed ||
+    !Array.isArray(parsed.participants) ||
+    parsed.participants.length === 0;
+
+  if (needBootstrap) {
     try {
       const res = await fetch('./data.json', { cache: 'no-store' });
       if (res.ok) {
         const data = await res.json();
-        localStorage.setItem("walk_marathon_newyear_admin_view_v1", JSON.stringify(data));
+        state = data;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
       }
-    } catch (e) {}
+    } catch (e) {
+      console.warn("Не удалось загрузить data.json", e);
+    }
+  } else {
+    state = parsed;
   }
 
-  ensureStepsLength();
-  save();
-  applyAdminUI();
-  render();
+ensureStepsLength();
+applyAdminUI();
+render();
+save();
 })();
   
 </script>
