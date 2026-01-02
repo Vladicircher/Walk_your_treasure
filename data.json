@@ -54,7 +54,7 @@
       "name": "Василина Сергеева",
       "steps": [
         14768,
-        0,
+        13549,
         0,
         0,
         0,
@@ -264,7 +264,7 @@
       "name": "Татьяна Лобанова",
       "steps": [
         18006,
-        0,
+        18991,
         0,
         0,
         0,
@@ -425,7 +425,7 @@
       ]
     }
   ],
-  "activeDayIndex": 0,
+  "activeDayIndex": 1,
   "lockDay": false,
   "highlightMissing": false
 }
